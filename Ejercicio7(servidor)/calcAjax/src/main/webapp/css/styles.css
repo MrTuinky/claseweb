@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22-sep-2019, 12:04:12
+    Author     : alejandro
+*/
+
+body{
+    margin:0;
+    padding:0;
+}
+#header{
+    text-align: center;
+    margin-top:20px;
+    background-color: #BDBDB3;
+    border-top: 2px solid #6A8499;
+    border-bottom: 2px solid #6A8499;
+    border-radius: 10px;
+}
+#main{
+    background-color: #FCFCF0;
+    margin:20px auto;
+    padding:10px;
+    width:80%;
+    border-top:1px solid #7F9993; 
+    border-bottom:4px solid #7F9993; 
+    border-radius:10px;
+}
+
+.formulario{
+    width:50%;
+    margin:0 auto;
+   
+}
+
+.centrado{
+    text-align: center;
+    
+}
+.error{
+    color:red;
+}
+
+#resultado{ 
+    color:blue;
+}
+.resultado{
+    width:60%;
+    margin:10px auto;
+}
