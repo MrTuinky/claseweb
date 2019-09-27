@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Ejercicio10</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#submit").click(function () {
+                $(function(){
+    var table;
+    
+    $.getJSON('tabla.json',function(data){
+        table = data.table;
+        
+        iniciando(0);
+        
+    });
+    
+    function iniciando(){
+        $("#mi_tabla").empty();
+        
+        jQuery.each(table.rows,function(i,row){
+            var r = "";
+            
+            $.each(row,function(index,valor){
+                
+                
+              // r = r + "<tr><td>" + valor + "</td>";
+                
+                if (index == "userId"){
+                    r = r + "<tr><td>" + valor + "</td>";
+                }
+                else{
+                    r = r + "<td>" + valor + "</td>";
+                }
+            });
+            r += "</tr>";
+            
+            $("#mi_tabla").append(r);
+            
+        });
+        
+    }
+    
+});
+
+            });
+            });
+
+        </script>
+        
+    </head>
+    
+    
+    <body>
+        
+        <div class="container">
+        
+        
+        <h1>Tabla con datos JSON</h1>
+        
+        <div class="centrado">
+             <button id="submit" class="btn btn-primary mt-5">Generar</button>
+        </div>
+        
+        
+        <table id="mi_tabla" class="table table-bordered mt-5">
+            <tbody>
+            </tbody>
+        </table>
+        
+        </div>
+        
+        
+        
+    </body>
+</html>
