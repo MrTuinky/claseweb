@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Ejercicio11</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- https://aviation-edge.com/developers/ -->
+
+<body>
+    <div class="container my-5 w-10">
+        <h1>Ejercicio 11. Buscador de aerolíneas.</h1>
+        
+                    <div class="form-group">
+                    <h3>Código Iata:</h3>
+                    <input type="text" class="form-control" id="codIata" name="codIata" placeholder="Introduce el código iata de la aerolínea (Ejemplo AA)">
+                    </div>
+        <button class="btn btn-primary w-10" onclick="traer()">Generar</button>
+       
+        <div class="mt-5">
+            <table class="table">
+                
+                <tbody id="contenido">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        
+        
+        var contenido = document.querySelector('#contenido')
+        
+        var iataCode = null;
+
+        function traer() {
+            
+            
+            
+            iataCode = document.getElementsByName("codIata")[0].value;
+            
+            
+            //Método fetch --> lee una url y trae datos
+            fetch('https://aviation-edge.com/v2/public/airlineDatabase?key=a01228-95bf17&codeIataAirline='+iataCode)
+                .then(res => res.json())
+                .then(datos => {
+                    // console.log(datos)
+                    tabla(datos)
+                })
+                
+    }
+        
+
+        function tabla(datos) {
+            // console.log(datos)
+            contenido.innerHTML = ''
+            for(let valor of datos){
+                // console.log(valor.nombre)
+                contenido.innerHTML += `
+                
+                
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">ID aerolínea</span>
+                    </div>
+                    <span class="input-group-text" id="basic-addon3">${ valor.airlineId }</span>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">Nombre</span>
+                    </div>
+                    <span class="input-group-text" id="basic-addon3">${ valor.nameAirline }</span>
+                </div>
+            
+            
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">Estado</span>
+                    </div>
+                    <span class="text-success input-group-text" id="basic-addon3">${ valor.statusAirline }</span>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">Año de fundación</span>
+                    </div>
+                    <span class="input-group-text" id="basic-addon3">${ valor.founding }</span>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">País</span>
+                    </div>
+                    <span class="input-group-text" id="basic-addon3">${ valor.nameCountry }</span>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="text-white bg-info input-group-text" id="basic-addon3">Código Iso</span>
+                    </div>
+                    <span class="input-group-text" id="basic-addon3">${ valor.codeIso2Country }</span>
+                </div>
+            
+            
+            
+                
+            
+                
+                    
+                    
+                    
+                
+                `
+            } 
+            
+        }
+
+    </script>
+
+
+</body>
+
+</html>
