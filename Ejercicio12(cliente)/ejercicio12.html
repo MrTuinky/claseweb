@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Ejercicio12</title>
+    <script type="text/javascript">
+
+    
+    var segundos = null;
+    $(document).ready(function () {
+                $("#submit").click(function () {
+
+                    segundos = document.getElementsByName("segundos")[0].value;
+
+                    function wait() { 
+                        var deferred = $.Deferred(); 
+                        setTimeout(function() { 
+                            deferred.resolve(); 
+                        }, segundos+"000"); 
+                        return deferred.promise(); 
+                    } 
+                    wait().done(function() { 
+                        alert("He esperado " +segundos+ " segundos!!"); 
+                    });
+
+
+                })
+    })
+    
+    
+    
+    </script>
+
+</head>
+<body>
+
+    <div class="container mt-5">
+
+            <div class="form-group">
+                    <label for="segundos">Segundos</label>
+                    <input type="text" class="form-control" id="segundos" placeholder="Introduce los segundos que quieres esperar" name="segundos">
+            </div>
+
+            <button id="submit" class="btn btn-primary">Púlsame</button>
+
+    </div>
+
+
+
+
+
+    <!--
+        
+        Lo que estoy haciendo aquí es crear una función wait() que retorna una interfaz de sólo lectura 
+        de una deferred. En la función wait() espero los segundos recogidos por pantalla y resuelvo 
+        la deferred. En el exterior, no puedo acceder a los métodos resolve y 
+        reject ya que se trata de una promise pero sí que puedo asociar 
+        callbacks de la manera habitual ya vista. Por tanto, si ejecutamos 
+        este código veremos una bonita alerta a los 5 segundos que nos muestra 
+        el texto “He esperado 5 segundos!!”.
+
+        Si tratamos de hacer algo como wait().resolve() fuera del cuerpo 
+        de la función veremos que nos indica que no existe un método resolve() 
+        en la promise.
+    -->
+    
+</body>
+</html>
