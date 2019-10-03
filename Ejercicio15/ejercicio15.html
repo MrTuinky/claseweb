@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+        <script src="module.js"></script>
+        <script src="controller.js"></script>
+    </head>
+        <body>
+            
+        <div class="container">
+
+            
+            <div class="mt-5" ng-app="ejercicio15" ng-controller="datosController">
+            <h6>Ejercicio15. Tabla AngularJS con controlador, modulo y JSON</h6>
+
+            <table class="table text-center mt-5">
+                        <tr class="bg-secondary text-light">
+                            <td>Nombre</td>
+                            <td>Ciudad</td>
+                            <td>Provincia</td>
+                        </tr>
+                <tr ng-repeat="x in nombres">
+                    <td>{{x.Nombre}}</td>
+                    <td>{{x.Ciudad}}</td>
+                    <td>{{x.Provincia}}</td>
+                </tr>
+            </table>
+            </div>
+
+        </div>
+
+
+        </body>
+        </html>
