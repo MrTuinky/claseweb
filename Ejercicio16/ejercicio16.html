@@ -10,11 +10,16 @@
 }
         
           </style>
+
+
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <html>
+
             <div class="container mt-3">
+<h3>Ejercicio 16. Formulario que valida</h3>
+
         <div ng-app ng-controller="ejercicio16">
         <form name="formulario" >
             <input type="text" ng-model="model" name="input" ng-pattern="
@@ -94,7 +99,7 @@ function ejercicio16($scope){
 
     $scope.model5 = 'Introduce una fecha'
     $scope.placeholder5 = 'Introduce una fecha';
-    $scope.pattern5="/^\d{1,2}\/\d{1,2}\/\d{2,4}$/";
+    $scope.pattern5="/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/";
 }
 
         </script>
