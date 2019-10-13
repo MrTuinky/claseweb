@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="py-3 text-center">TABLA MULTIPLICACIONES</h1>
+      <form name="userForm">
+        <div class="form-group row">
+          <label for="op1" class="col-sm-2 col-form-label">Alto</label>
+          <div class="input-group">
+            <div class="col-sm-10">
+              <input type="text" ng-model="op1" class="form-control"
+                ng-class="{ 'is-invalid' : !userForm.op1.$valid && !userForm.op1.$pristine}" name="op1"
+                placeholder="Introduce la altura" ng-pattern="/^\d+$/i" ng-maxlength="3" ng-required="true" />
+              <div class="invalid-feedback" ng-show="userForm.op1.$error.required">
+                La altura no puede estar vacío.
+              </div>
+              <div class="invalid-feedback" ng-show="userForm.op1.$error.pattern">
+                La altura introducido es incorrecto, sólo debe llevar números
+              </div>
+              <div class="invalid-feedback" ng-show="userForm.op1.$error.maxlength">
+                El operando introducido es incorrecto: la longitud máxima es de 2 números
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="op2" class="col-sm-2 col-form-label">Ancho</label>
+          <div class="input-group">
+            <div class="col-sm-10">
+              <input type="text" ng-model="op2" class="form-control"
+                ng-class="{ 'is-invalid' : !userForm.op2.$valid && !userForm.op2.$pristine}" name="op2"
+                placeholder="Introduce el ancho" ng-pattern="/^\d+$/i" ng-maxlength="2" ng-required="true" />
+              <div class="invalid-feedback" ng-show="userForm.op2.$error.required">
+                El ancho no puede estar vacío.
+              </div>
+              <div class="invalid-feedback" ng-show="userForm.op2.$error.pattern">
+                El ancho introducido es incorrecto, sólo debe llevar números
+              </div>
+              <div class="invalid-feedback" ng-show="userForm.op2.$error.maxlength">
+                El ancho introducido es incorrecto: la longitud máxima es de 2 números
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" ng-disabled="userForm.$invalid" class="btn btn-primary" ng-click="tabla()">Enviar
+              datos</button>
+          </div>
+        </div>
+      </form>
+      {{resultado.alto}}
+      <table ng-show="resultado" class="table table-dark table-bordered table-hover">
+          
+          <tr ng-repeat="r in resultado">
+            
+              <td ng-repeat="j in r">
+                  {{j}}
+              </td>
+          </tr>
+         
+          
+      </table>
+      <a href="#!/">Ir a la página de inicio</a><br>
+    </div>
+  </div>
+</div>
